@@ -1,9 +1,3 @@
-<?php
-  include ('config.php');
-  $pdo = new PDO('mysql:host=localhost;dbname='.$DB_NAME, $DB_USER, $DB_PASS);
-  $query = $pdo -> query ("SELECT * FROM guides");
-  $guides = $query -> fetchAll (PDO::FETCH_ASSOC);
-?>
 <html>
   <head>
     
@@ -16,8 +10,14 @@
     
     <script type="text/javascript">
       $(function() {
-        // Stuff to do as soon as the DOM is ready;
-        $('table').dataTable({"bPaginate":false, "bFilter":true, "bInfo":false, "aaSorting":[[0,'asc']]});
+        $.getJSON('data/list.json', function(data){
+          var html = '';
+          for (i in data) {
+            html += '<tr><td>' + data[i].id + '</td><td>' + data[i].institute + '</td><td>' + data[i].specialization + '</td><td>' + data[i].interest + '</td><td>' + data[i].professor + '</td></tr>';
+          }
+          $('tbody').html(html);
+          $('table').dataTable({"bPaginate":false, "bFilter":true, "bInfo":false, "aaSorting":[[0,'asc']]});
+        });
       });
     </script>
 
@@ -61,11 +61,7 @@
             </tr> 
           </thead>
           <tbody>
-          <?
-            foreach ($guides as $index => $guide) {
-              echo "<tr><td>".$guide['id']."</td><td>".$guide['institute']."</td><td>".$guide['specialization']."</td><td>".$guide['interest']."</td><td>".$guide['professor']."</td>";
-            }
-          ?>
+          
           </tbody>
         </table>
       
