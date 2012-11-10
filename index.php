@@ -16,7 +16,7 @@
             html += '<tr><td>' + data[i].id + '</td><td>' + data[i].institute + '</td><td>' + data[i].specialization + '</td><td>' + data[i].interest + '</td><td>' + data[i].professor + '</td></tr>';
           }
           $('tbody').html(html);
-          $('table').dataTable({"bPaginate":false, "bFilter":true, "bInfo":false, "aaSorting":[[0,'asc']]});
+          $('table').dataTable({"bPaginate":false, "bFilter":true, "bSort": true, "bInfo":false, "aaSorting":[[0,'asc']]});
         });
       });
     </script>
@@ -45,7 +45,7 @@
         <div class="row">
           <div class="span6">
             <h1>Indian Academy of Sciences</h1>
-            <p class="lead">Complete list of guides.</p><p> Click on column headers to sort.</p>
+            <p class="lead">Complete list of guides.</p><p>Click on column headers to sort.</p><p> Shift+Click enables multi-column filtering.</p>
           </div>
         </div>
       </header>
