@@ -10,6 +10,20 @@
     
     <link rel="shortcut icon" href="assets/favicon.png">    
 
+    <script type="text/javascript">
+      $(function() {
+        $.getJSON('data/list.json', function(data){
+          var html='<thead><tr><th>ID</th><th>Institute</th><th>Specialization</th><th>Interest</th><th>Professor</th></tr></thead><tbody>';
+          for (i in data) {
+            html += '<tr><td>' + data[i].id + '</td><td>' + data[i].institute + '</td><td>' + data[i].specialization + '</td><td>' + data[i].interest + '</td><td>' + data[i].professor + '</td></tr>';
+          }
+          html += '</tbody>';
+          $('table').html(html).dataTable({"bPaginate":false, "bFilter":true, "bSort": true, "bInfo":false, "aaSorting":[[0,'asc']]});
+          $('.loader').remove();
+        });
+      });
+    </script>
+
     <style type="text/css">
       .dataTables_filter {
         margin: 20px 0;
@@ -39,14 +53,13 @@
         </div>
       </header>
 
+
+      <table class='table table-bordered table-striped'>
+      </table>
+
       <div class="loader" style="text-align:center">
         Loading
       </div>
-
-      <table class='table table-bordered table-striped'>
-        
-      </table>
-
 
       <footer >
         <p>Made by <a href="https://github.com/abhshkdz">Abhishek Das</a></p>
@@ -56,15 +69,6 @@
 
     <script type="text/javascript">
       $(function() {
-        $.getJSON('data/list.json', function(data){
-          var html = '<tbody><thead><tr><th>ID</th><th>Institute</th><th>Specialization</th><th>Interest</th><th>Professor</th></tr></thead><tbody>';
-          for (i in data) {
-            html += '<tr><td>' + data[i].id + '</td><td>' + data[i].institute + '</td><td>' + data[i].specialization + '</td><td>' + data[i].interest + '</td><td>' + data[i].professor + '</td></tr>';
-          }
-          html += '</tbody>';
-          $('table').html(html).dataTable({"bPaginate":false, "bFilter":true, "bSort": true, "bInfo":false, "aaSorting":[[0,'asc']]});
-          $('.loader').remove();
-        });
       });
     </script>
 
