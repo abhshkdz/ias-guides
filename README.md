@@ -2,7 +2,7 @@
 
 ##Summer Research Fellowship Programme 2013
 
-###[Complete List of Guides](http://iasguides.phpfogapp.com/)
+###[Complete List of Guides](http://abhshkdz.github.com/ias-guides/)
 
 The official list is available [here](http://web-japps.ias.ac.in:8080/fellowship2013/selectfellows.jsp?atype=B&area=%25). I felt a need for sorting by interest, specialization etc., and better search hence built this.
 
